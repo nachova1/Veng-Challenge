@@ -1,6 +1,8 @@
 const express = require('express');
 const { Pool } = require('pg');
 
+// Tasks API - Veng Challenge
+
 const pool = new Pool({
     user: process.env.DB_USER,
     host: process.env.DB_HOST,
