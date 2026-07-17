@@ -2,7 +2,6 @@ const express = require('express');
 const { Pool } = require('pg');
 
 // Tasks API - Veng Challenge
-
 const pool = new Pool({
     user: process.env.DB_USER,
     host: process.env.DB_HOST,
@@ -14,7 +13,6 @@ const pool = new Pool({
 const app = express();
 app.use(express.json());
 
-// Crear tabla al arrancar
 pool.query(`
     CREATE TABLE IF NOT EXISTS tasks (
         id SERIAL PRIMARY KEY,
@@ -24,7 +22,6 @@ pool.query(`
 `).then(() => console.log('Tabla tasks lista'))
   .catch(err => console.error('Error creando tabla:', err.message));
 
-// Listar tareas
 app.get('/tasks', async (req, res) => {
     try {
         const result = await pool.query('SELECT * FROM tasks ORDER BY id');
@@ -34,7 +31,6 @@ app.get('/tasks', async (req, res) => {
     }
 });
 
-// Crear tarea
 app.post('/tasks', async (req, res) => {
     const { title } = req.body;
     try {
@@ -48,7 +44,6 @@ app.post('/tasks', async (req, res) => {
     }
 });
 
-// Marcar como completada
 app.put('/tasks/:id', async (req, res) => {
     const { id } = req.params;
     try {
@@ -62,7 +57,6 @@ app.put('/tasks/:id', async (req, res) => {
     }
 });
 
-// Eliminar tarea
 app.delete('/tasks/:id', async (req, res) => {
     const { id } = req.params;
     try {
