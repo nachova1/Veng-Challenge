@@ -1,9 +1,9 @@
 {
   "name": "Veng Challenge",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node src/index.js",
     "test": "echo \"sin tests configurados\" && exit 0"
   },
   "dependencies": {
