@@ -16,7 +16,7 @@ API REST para gestión de tareas, desarrollada como desafío técnico de prepara
 
 ```bash
 git clone https://github.com/nachova1/Veng-Challenge.git
-cd tasks-api
+cd Veng-Challenge
 cp .env.example .env
 ```
 
